@@ -21,12 +21,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  *
- * @author boniface
+ * @author WhyDoYouWantToKnow?
  */
 @Configuration
-@ComponentScan("com.kabaso.askweb")
+@ComponentScan("com.mycompany.smartlaundry")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.kabaso.askweb.respository")
+@EnableJpaRepositories(basePackages = "com.mycompany.smartlaundry")
 public class ConnectionConfig {
 
     @Bean

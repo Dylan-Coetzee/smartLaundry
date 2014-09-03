@@ -38,9 +38,9 @@ public class Customer implements Serializable {
     private Demographic demographic;
     private String allergy;
     @OneToMany( cascade = CascadeType.ALL)
-    @LazyCollection(LazyCollectionOption.FALSE)
+    //@LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "customerNumber")
-    List<CustomerOrder> orders;
+    private List<CustomerOrder> orders;
 
     private Customer(Builder builder) {
         this.customerId = builder.customerId;

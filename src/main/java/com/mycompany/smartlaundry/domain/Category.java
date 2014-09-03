@@ -31,7 +31,7 @@ public class Category implements Serializable {
     private double rate;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "id")
-    List<OrderItem> orderItems;
+    private List<OrderItem> orderItems;
    
     public Long getId() {
         return id;
@@ -56,7 +56,7 @@ public class Category implements Serializable {
         orderItems = builder.orderItems;
     }
     
-    private static class Builder{
+    public static class Builder{
         private Long id;
         private String type;
         private double rate;

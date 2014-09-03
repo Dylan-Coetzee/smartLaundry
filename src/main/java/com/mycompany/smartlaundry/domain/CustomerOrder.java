@@ -15,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -33,7 +34,8 @@ public class CustomerOrder implements Serializable {
     private String storage;
     private String collected;
     private Calendar tranDatetime;
-    @OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    @OneToMany(fetch=FetchType.EAGER ,cascade=CascadeType.ALL)
+    @JoinColumn(name="orderID")
     private List<DeliveryLog> deliveryLog;
     @ManyToOne
     private Customer customer;
