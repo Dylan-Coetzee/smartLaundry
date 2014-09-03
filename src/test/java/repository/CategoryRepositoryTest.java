@@ -1,3 +1,20 @@
+Skip to content
+ This repository
+Explore
+Gist
+Blog
+Help
+Khanya Mvumbi khanyaMvumbi
+ 
+You don't have any verified emails. We recommend verifying at least one email.
+Email verification helps our support team help you in case you have any email issues or lose your password.
+5  Unwatch 
+  Star 0
+ Fork 0Dylan-Coetzee/smartLaundry
+ branch: master  smartLaundry / src / test / java / repository / CategoryRepositoryTest.java
+Allen  Ngororaangorora just now No commit message
+2 contributors Khanya MvumbiAllen  Ngorora
+65 lines (54 sloc)  1.783 kb RawBlameHistory   
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,10 +24,11 @@
 package repository;
 
 import com.mycompany.smartlaundry.app.conf.ConnectionConfig;
+import com.mycompany.smartlaundry.domain.Category;
 import com.mycompany.smartlaundry.repository.CategoryRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import static org.testng.Assert.*;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -34,8 +52,13 @@ public class CategoryRepositoryTest {
     //
     @Test
     public void testCreate() {
-        
-    
+        repo = ctx.getBean(CategoryRepository.class);
+        Category cat = new Category.Builder("Clothes")
+                .rate(50.00)
+                .build();
+        repo.save(cat);
+        id = cat.getId();
+        Assert.assertNotNull(id);
     }
 
     
@@ -56,3 +79,4 @@ public class CategoryRepositoryTest {
     public void tearDownMethod() throws Exception {
     }
 }
+Status API Training Shop Blog About © 2014 GitHub, Inc. Terms Privacy Security Contact 
