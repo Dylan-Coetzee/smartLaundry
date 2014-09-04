@@ -27,6 +27,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
@@ -38,6 +39,7 @@ public class CustomerRepositoryTest {
     private CustomerRepository repo;
     private Long id;
     
+    @Test
     public CustomerRepositoryTest() {
     
         repo = ctx.getBean(CustomerRepository.class);

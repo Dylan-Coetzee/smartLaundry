@@ -6,12 +6,15 @@
 
 package com.mycompany.smartlaundry.repository;
 
+import com.mycompany.smartlaundry.domain.CustomerOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Khanya
  */
-public interface CustomerOrderRepository extends JpaRepository<CustomerOrderRepository, Long> {
+@Repository
+public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, Long> {
     
 }

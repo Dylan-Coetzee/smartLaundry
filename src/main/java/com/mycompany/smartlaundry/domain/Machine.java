@@ -66,7 +66,7 @@ public class Machine implements Serializable {
         capacity = builder.capacity;
     }
     
-    private static class Builder{
+    public static class Builder{
         private Long id;
         private String make;
         private int duration;
