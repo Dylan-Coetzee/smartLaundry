@@ -7,10 +7,11 @@
 package repository;
 
 import com.mycompany.smartlaundry.app.conf.ConnectionConfig;
+import com.mycompany.smartlaundry.domain.Category;
 import com.mycompany.smartlaundry.repository.CategoryRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import static org.testng.Assert.*;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -34,8 +35,13 @@ public class CategoryRepositoryTest {
     //
     @Test
     public void testCreate() {
-        
-    
+        repo = ctx.getBean(CategoryRepository.class);
+        Category cat = new Category.Builder("Clothes")
+                .rate(50.00)
+                .build();
+        repo.save(cat);
+        id = cat.getId();
+        Assert.assertNotNull(id);
     }
 
     
