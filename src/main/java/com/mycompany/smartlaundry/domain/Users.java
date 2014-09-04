@@ -8,6 +8,7 @@ package com.mycompany.smartlaundry.domain;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +34,12 @@ public class Users implements Serializable {
     List<CustomerOrder> orders;
     private String username;
     private String password;
+    @Embedded
+    private Name name;
+    @Embedded
+    private Contact contact;
+    @Embedded
+    private Demographic demographic;
 
     private Users() {
     }
@@ -42,6 +49,9 @@ public class Users implements Serializable {
         this.orders = builder.orders;
         this.password = builder.password;
         this.username = builder.username;
+        this.contact = builder.contact;
+        this.demographic = builder.demographic;
+        this.name = builder.name;
     }
 
     public static class Builder {
@@ -50,9 +60,27 @@ public class Users implements Serializable {
         List<CustomerOrder> orders;
         private String username;
         private String password;
+        private Name name;
+        private Contact contact;
+        private Demographic demographic;
 
         public Builder(long id) {
             this.id = id;
+        }
+
+        public Builder contact(Contact contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        public Builder name(Name name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder demographic(Demographic demo) {
+            this.demographic = demo;
+            return this;
         }
 
         public Builder orders(List<CustomerOrder> order) {
@@ -74,12 +102,27 @@ public class Users implements Serializable {
             this.orders = builder.orders;
             this.password = builder.password;
             this.username = builder.username;
+            this.contact = builder.contact;
+            this.demographic = builder.demographic;
+            this.name = builder.name;
             return this;
         }
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public Demographic getDemographic() {
+        return demographic;
     }
 
     public List<CustomerOrder> getOrders() {
