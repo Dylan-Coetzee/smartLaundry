@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.mycompany.smartlaundry.app;
+package com.mycompany.smartlaundry.services;
 
 /**
  *
- * @author DARLINGTON
+ * @author hashcode
  */
-public class dummyconf {
+public interface Application {
     
 }
